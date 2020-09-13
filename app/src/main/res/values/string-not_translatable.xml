@@ -269,6 +269,14 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="file_template__txt_zim_wiki" translatable="false">zim-wiki.txt</string>
     <string name="file_template__md_hugo_post_front_matter" translatable="false">hugo-post-front-matter.md</string>
     <string name="file_template__md_presentation_beamer" translatable="false">presentation-beamer.md</string>
+
+    <string name="file_template__md_notiz" translatable="false">Notiz_yyyy-mm-dd_hhmm.md</string>
+    <string name="file_template__md_tagebuch_leer" translatable="false">Tagebuch_yyyy-mm-dd_Titel.md</string>
+    <string name="file_template__md_tagebuch_vorlage" translatable="false">Tagebuch_yyyy-mm-dd_Vorlage.md</string>
+    <string name="file_template__md_wochenplan" translatable="false">Wochenplan_yyyyKWxx.md</string>
+    <string name="file_template__md_jahresvorsatz" translatable="false">Jahresvorsatz_yyyy.md</string>
+    <string name="file_template__md_person" translatable="false">Person_Mustermann.md</string>
+
     <string name="key_value" translatable="false">Key - Value</string>
     <string name="ohm" translatable="false">Ohm (Ω)</string>
     <string name="debug" translatable="false">Debug</string>
