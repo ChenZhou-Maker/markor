@@ -48,6 +48,7 @@ public class NewFileDialog extends DialogFragment {
     public static final String FRAGMENT_TAG = "net.gsantner.markor.ui.NewFileDialog";
     public static final String EXTRA_DIR = "EXTRA_DIR";
     private Callback.a2<Boolean, File> callback;
+    public static int lastItem;
 
     public static NewFileDialog newInstance(File sourceFile, Callback.a2<Boolean, File> callback) {
         NewFileDialog dialog = new NewFileDialog();
@@ -70,6 +71,7 @@ public class NewFileDialog extends DialogFragment {
         if ((w = dialog.getWindow()) != null) {
             w.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         }
+
         return dialog;
     }
 
@@ -117,6 +119,7 @@ public class NewFileDialog extends DialogFragment {
             fileNameEdit.setSelection(fileNameEdit.length());
         }));
 
+        templateSpinner.setSelection(lastItem);
         templateSpinner.setOnItemSelectedListener(new AndroidSpinnerOnItemSelectedAdapter(pos -> {
             String prefix = null;
             String d = null;
@@ -126,31 +129,37 @@ public class NewFileDialog extends DialogFragment {
 
            switch (pos) {
                case 0: {
-                   prefix = "Notiz_" + SttCommander.DATEF_YYYY_MM_DD.format(new Date());
+                   prefix = "N" + SttCommander.DATEF_YYYY_MM_DD.format(new Date());
+                   lastItem = 0;
                    break;
                }
                case 1: {
-                   prefix = "Tagebuch_" + SttCommander.DATEF_YYYY_MM_DD.format(new Date()) + "_";
+                   prefix = "T" + SttCommander.DATEF_YYYY_MM_DD.format(new Date()) + "_";
+                   lastItem = 1;
                    break;
                }
                case 2: {
-                   prefix = "Tagebuch_" + SttCommander.DATEF_YYYY_MM_DD.format(new Date());
+                   prefix = "T" + SttCommander.DATEF_YYYY_MM_DD.format(new Date());
+                   lastItem = 2;
                    break;
                }
                case 3: {
                    d = SttCommander.DATEF_YYYY_MM_DD.format(new Date());
                    yyyy = d.substring(0,4);
                    prefix = "Wochenplan_" + yyyy + "KW";
+                   lastItem = 3;
                    break;
                }
                case 4: {
                    d = SttCommander.DATEF_YYYY_MM_DD.format(new Date());
                    yyyy = d.substring(0,4);
                    prefix = "Jahresvorsatz_" + yyyy;
+                   lastItem = 4;
                    break;
                }
                case 5: {
                    prefix = "Person_";
+                   lastItem = 6;
                    break;
                }
                default: {
